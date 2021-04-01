@@ -114,4 +114,31 @@ class LinkedListTest extends Specification{
         list.get(2)== 5
         list.get(3)== 7
     }
+
+    def 'Test LinkedList | insert() | insert multiple elements in between'(){
+        given:
+        def list= new LinkedList();
+        list.insert(0, 0)
+        list.insert(1, 1)
+        list.insert(2, 2)
+
+        when:
+        list.insert(4,1)
+        list.insert(7, 1)
+        list.insert(8, 2)
+        list.insert(9, 2)
+
+        then:
+        list.isEmpty()== false
+        list.size()== 7
+
+        and:
+        list.get(0)== 0
+        list.get(1)== 7
+        list.get(2)== 9
+        list.get(3)== 8
+        list.get(4)== 4
+        list.get(5)== 1
+        list.get(6)== 2
+    }
 }
