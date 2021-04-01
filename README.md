@@ -39,3 +39,8 @@ Print LinkedList in reverse order non recursively.
 **Testing**
 
 Spock framework with Groovy is used for unit testing.
+
+**Note**
+
+To run test cases please mark groovy folder as Test Resources Root.
+
