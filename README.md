@@ -1,6 +1,6 @@
 # doubly-linked-list-data-structure
 
-** Defining ADT (Abstract Data Type) **
+**Defining ADT (Abstract Data Type)**
 
 Create a doubly LinkedList data structure with following functions:
 
@@ -18,11 +18,11 @@ Check to see if list is empty: Time complexity should be O(1).
 
 Make sure all index operations throws IndexOutOfBoundsException for invalid index.
 
-** Assumption**:
+**Assumption**:
 
 LinkedList is of int type.
 
-** Operations **
+**Operations**
 
 Reverse a linked list using iterative method: Time complexity is O(n).
 
@@ -36,6 +36,6 @@ Print LinkedList in reverse order recursively.
 
 Print LinkedList in reverse order non recursively.
 
-** Testing **
+**Testing**
 
 Spock framework with Groovy is used for unit testing.
