@@ -33,19 +33,18 @@ public class LinkedList {
         } else {
             if (index == 0) {
                 insertAtIndexZero(node);
-            } else {
+            }
+            else if (index== this.size){
+                insertAtLast(node);
+            }
+            else {
                 for (int i = 0; i < index; i++) {
                     temp= temp.getNext();
                 }
-
-                if(index== size){
-                    insertAtLast(node, temp);
-                }else{
                     temp.getPrevious().setNext(node);
                     node.setNext(temp);
                     node.setPrevious(temp.getPrevious());
                     temp.setPrevious(node);
-                }
             }
 
         }
@@ -59,9 +58,27 @@ public class LinkedList {
         this.head = node;
     }
 
-    private void insertAtLast(Node node, Node last){
+    private void insertAtLast(Node node){
+        Node last= head;
+
+        for(int i=0; i<this.size-1; i++){
+            last= last.getNext();
+        }
         last.setNext(node);
         node.setPrevious(last);
         node.setNext(null);
+    }
+
+    public int get(int index){
+        if(index< 0 || index>= size){
+            throw new IndexOutOfBoundsException();
+        }
+        Node temp= head;
+
+        for(int i=0; i<index; i++){
+            temp= temp.getNext();
+        }
+
+        return temp.getData();
     }
 }
