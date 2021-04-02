@@ -81,4 +81,70 @@ public class LinkedList {
 
         return temp.getData();
     }
+
+    public void delete(int index){
+        if(index< 0 || index>=size){
+            throw new IndexOutOfBoundsException();
+        }
+
+        if(index== 0){
+            if(null!= head.getNext()) {
+                head.getNext().setPrevious(null);
+            }
+            head= head.getNext();
+        }else if(index== this.size-1){
+            deleteAtLastIndex();
+        }else{
+            Node temp= head;
+            for(int i=0; i<index; i++){
+                temp= temp.getNext();
+            }
+            temp.getPrevious().setNext(temp.getNext());
+            temp.getNext().setPrevious(temp.getPrevious());
+        }
+        size--;
+    }
+
+    private void deleteAtLastIndex(){
+        Node temp= head;
+        for(int i=0; i< this.size-1; i++){
+            temp= temp.getNext();
+        }
+        temp.getPrevious().setNext(null);
+    }
+
+    public void update(int element, int index){
+        if(index<0 || index>= this.size){
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node temp= head;
+
+        for(int i=0; i<index; i++){
+            temp= temp.getNext();
+        }
+
+        temp.setData(element);
+    }
+
+    public void print(){
+        Node temp= head;
+        System.out.println(" ");
+        while(temp!= null){
+            System.out.print(" ");
+            System.out.print(temp.getData());
+            temp= temp.getNext();
+        }
+    }
+
+    public void printRecursively(Node head){
+        if(head== null){
+            return;
+        }
+
+        System.out.print(" ");
+        System.out.print(head.getData());
+        printRecursively(head.getNext());
+
+    }
 }
