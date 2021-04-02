@@ -148,6 +148,25 @@ public class LinkedList {
 
     }
 
+    public void printReverse(){
+        System.out.println();
+        if(head== null){
+            return;
+        }
+
+        Node temp= head;
+
+        while(temp.getNext()!= null){
+            temp= temp.getNext();
+        }
+
+        while(temp!= null){
+            System.out.print(" ");
+            System.out.print(temp.getData());
+            temp= temp.getPrevious();
+        }
+    }
+
     public void printReversRecursively(Node head){
         if(head== null){
             System.out.println();
