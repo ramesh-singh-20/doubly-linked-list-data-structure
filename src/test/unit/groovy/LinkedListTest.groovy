@@ -391,4 +391,30 @@ class LinkedListTest extends Specification{
         list.get(2)== 6
         list.get(3)== 4
     }
+
+    def 'Test LinkedList | reverse() '(){
+        given:
+        def list= new LinkedList()
+        list.insert(0, 0)
+        list.insert(1, 1)
+        list.insert(2, 2)
+        list.insert(3, 3)
+        list.print()
+
+        when:
+        list.reverse()
+        list.print()
+
+        then:
+        !list.isEmpty()
+        list.size()== 4
+
+        and:
+        list.get(0)== 3
+        list.get(1)== 2
+        list.get(2)== 1
+        list.get(3)== 0
+
+
+    }
 }

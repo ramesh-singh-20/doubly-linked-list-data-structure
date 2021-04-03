@@ -178,4 +178,22 @@ public class LinkedList {
         System.out.print(head.getData());
 
     }
+
+    public void reverse(){
+        Node current= this.head;
+        Node previous= null;
+        Node next= current.getNext();
+
+        while(next!= null){
+            current.setPrevious(next);
+            current.setNext(previous);
+            previous= current;
+            current= next;
+            next= next.getNext();
+        }
+
+        this.head= current;
+        current.setPrevious(next);
+        current.setNext(previous);
+    }
 }
