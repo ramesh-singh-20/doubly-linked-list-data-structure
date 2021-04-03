@@ -1,10 +1,11 @@
 package com.alphacoder.datastructure;
 
 import lombok.AccessLevel;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+@Data
 public class LinkedList {
     private Node head;
     private int size;
@@ -195,5 +196,21 @@ public class LinkedList {
         this.head= current;
         current.setPrevious(next);
         current.setNext(previous);
+    }
+
+    public Node reverseRecursively(Node node){
+        if(node== null){
+            return null;
+        }
+
+        Node temp= node.getNext();
+        node.setNext(node.getPrevious());
+        node.setPrevious(temp);
+
+        if(node.getPrevious()== null){
+            return node;
+        }
+
+        return reverseRecursively(node.getPrevious());
     }
 }
